@@ -8,25 +8,25 @@ export function App() {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
-  onLeaveFeedback = option => {
+  const onLeaveFeedback = option => {
     switch (option) {
       case 'good':
         setGood(prevGood => prevGood + 1);
         break;
       case 'neutral':
-        setGood(prevNeutral => prevNeutral + 1);
+        setNeutral(prevNeutral => prevNeutral + 1);
         break;
       case 'bad':
-        setGood(prevBad => prevBad + 1);
+        setBad(prevBad => prevBad + 1);
         break;
       default:
         return;
     }
   };
-  countTotalFeedback = () => {
+  const countTotalFeedback = () => {
     return good + neutral + bad;
   };
-  countPositiveFeedbackPercentage = () => {
+  const countPositiveFeedbackPercentage = () => {
     return Math.round((good / countTotalFeedback()) * 100) || 0;
   };
   return (
